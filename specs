@@ -1,0 +1,56 @@
+For instance, let’s assume that the initial population of snowshoe hares is 300 and the initial population of lynxes is 20, and the values of the constants that regulate the model are a1 = 0.1, a2 = 0.01, b1 = 0.01 and b2 = 0.00002. The previous formula can be used to calculate the population of both lynxes and snowshoe hares after 2 periods:
+
+After 1 period the population of snowshoe hares will be:
+H[1] = H[0] + a1 * H[0] - a2*H[0]*L[0] = H[0] * (1 + a1 - a2*L[0]) = 300 *(1 + 0.1 - 0.01*20) = 270
+In turn, the population of lynxes will be:
+L[1] = L[0] - b1 * L[0] + b2*H[0]*L[0] = L[0] * (1 - b1 +b2*H[0]) = 20 * (1 - 0.01 + 0.00002*300) = 19.92
+
+Notice that we keep the decimals for the following loop in the formula.
+
+After 2 periods, the population of snowshoe hares will be:
+H[2] = H[1] * (1 + a1 - a2*L[1]) = 270 * (1 + 0.1 - 0.01*19,92) = 243.216
+And the population of lynxes will be: 
+L[2] = L[1] * (1 - b1 +b2*H[1]) = 19.92 * (1 - 0.01 + 0.00002*270) = 19.828368
+
+If we continue, we can guess the population after 20 periods:
+H[20] = 47.15 snowshoe hares
+L[20] = 17.28 lynxes
+
+or after 100 periods:
+H[100] =8.44 snowshoe hares
+L[100] =7.89 lynxes
+
+or even after 200 periods:
+H[200] = 903.17 snowshoe hares
+L[200] = 3.91 lynxes
+
+-----------------------------------------------------------------------------------------------------------------------------------
+The goal of this activity is to: SOLVE THIS PROBLEM PROGRAMMING AN ITERATIVE METHOD
+-----------------------------------------------------------------------------------------------------------------------------------
+Guidelines for solving the problem:
+1) The header of the method should be:
+- double[] preyPredLV(double[] preyPred, double[] a, double[] b, int n)
+
+2) The method should have as arguments:
+- An array called "preyPred" with 2 doubles:
+_ The initial population of snowshoe hares, preyPred[0];
+_ The initial population of lynx, preyPred[1]
+- An array called "a" with 2 doubles containing the constants a1 and a2:
+_ a[0] = a1;
+_ a[1] = a2;
+- An array called "b" with 2 doubles containing the constants b1 and b2:
+_ b[0] = b1;
+_ b[1] = b2;
+- The number of periods, "n", at which we want to predict the future population of snowshoe hares and lynxes.
+
+3) The method should return the array "preyPred", in a way that it should contain:
+- The population of snowshoe hares at the given number of periods "n" (H[n]) in preyPred[0];
+- The population of lynxes at the given number of periods "n" (L[n]) in preyPred[1].
+
+4) You can choose to solve this problem using one of the following two possibilities:
+- To implement an iterative method with a for loop; or
+- To implement an iterative method with a while loop
+
+To check your solution you can use the data from the example.
+
+IMPORTANT: Do not forget to comment your code properly, including Javadoc comments so that your peers can better understand it.
